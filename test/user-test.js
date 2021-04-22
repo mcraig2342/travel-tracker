@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-
 import User from '../src/user.js';
+import trips from '../src/data/trip-test-data.js'
 
 let defaultUser;
 
@@ -10,7 +10,7 @@ describe('User', () => {
 "id": 1,
 "name": "Ham Leadbeater",
 "travelerType": "relaxer"
-});
+}, trips);
   });
 
   it('should be an instance of a User', () => {
@@ -33,5 +33,7 @@ describe('User', () => {
     expect(defaultUser.returnFirstName()).to.equal('Ham');
   });
 
-
+  it("should be able to find their trips", () => {
+    expect(defaultUser.trips).to.deep.equal([trips[4]])
+  });
 });
