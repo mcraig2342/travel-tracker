@@ -5,3 +5,20 @@ $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,1
 body {
   background: $primary-background;
 }
+
+.main-dashboard {
+  display: flex;
+  justify-content: space-around;
+}
+
+.trip-box {
+  height: 30vw;
+  width: 22vw;
+  background-color: white;
+}
+
+.trip-header {
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}

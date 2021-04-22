@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Tracker</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
+    <header>
+      <h1 class="title">Travel Tracker</h1>
+      <h2 class="welcome">Welcome User</h2>
+      <p class="amount-spent">You have spent ... traveling</p>
+    </header>
+    <nav>
+      <button type="button" class="dashboard-button">Dashboard</button>
+      <button type="button" class="book-trip-button">Book a trip</button>
+    </nav>
+    <main class="main-dashboard">
+      <section class="past-trips trip-box">
+        <header>
+          <h3 class="trip-header">Past trips</h3>
+        </header>
+      </section>
+      <section class="ongoing-trips trip-box">
+        <header>
+          <h3 class="trip-header">Ongoing trips</h3>
+        </header>
+      </section>
+      <section class="upcoming-trips trip-box">
+        <header>
+          <h3 class="trip-header">Upcoming trips</h3>
+        </header>
+      </section>
+      <section class="pending-trips trip-box">
+        <header>
+          <h3 class="trip-header">Pending trips</h3>
+        </header>
+      </section>
+    </main>
 
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
