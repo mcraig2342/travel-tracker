@@ -14,6 +14,7 @@ function onStartup() {
     .then(allData => {
       user = new User(allData.travelerData.travelers[10], allData.tripsData.trips, allData.destinationData.destinations, Trip);
       domUpdates.displayUserName(user);
+      domUpdates.displayAmountSpent(user);
     })
 }
 
