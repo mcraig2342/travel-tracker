@@ -1,9 +1,9 @@
 class User {
-  constructor(userData, trips, destinations, Trip) {
+  constructor(userData, tripsData, destinations, Trip) {
     this.name = userData.name;
     this.id = userData.id;
     this.type = userData.travelerType;
-    this.trips = this.findTrips(trips, destinations, Trip);
+    this.trips = this.findTrips(tripsData, destinations, Trip);
   }
 
   returnFirstName() {
@@ -11,15 +11,15 @@ class User {
     return splitName[0];
   }
 
-  findTrips(trips, destinations, Trip) {
+  findTrips(tripsData, destinations, Trip) {
     const userTrips = [];
-    trips.forEach((trip, i) => {
-      if (this.id === trip.userID) {
-        const newTrip = new Trip(trip, destinations)
+    tripsData.forEach((tripObject, i) => {
+      if (this.id === tripObject.userID) {
+        const newTrip = new Trip(tripObject, destinations)
         userTrips.push(newTrip);
       }
     });
-    return userTrips; 2220
+    return userTrips;
   }
 
   calculateAmountSpent() {
