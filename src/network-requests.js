@@ -17,7 +17,7 @@ const getData = () => {
       return travelerData;
     })
 
-  return Promise.all([tripsData, destinationData, userData])
+  return Promise.all([tripsData, destinationData, travelerData])
     .then(data => {
       const allData = {};
       allData.tripsData = data[0];
