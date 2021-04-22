@@ -32,6 +32,4 @@ describe('User', () => {
   it("should be able to return th users first name", () => {
     expect(defaultUser.returnFirstName()).to.equal('Ham');
   });
-
-
 });
