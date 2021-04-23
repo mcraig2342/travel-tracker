@@ -38,12 +38,17 @@ function onStartup() {
 
 function makeTripRequest() {
   // domUpdates.confirmTripRequest();
-  console.log(trips.length + 1);
-  console.log(user.id);
-  console.log(chosenDestination);
-  console.log(startDate.value);
-  console.log(duration.value);
-  console.log(travelers.value);
+  let tripRequest = {
+    id: trips.length + 1,
+     userID: user.id,
+      destinationID: parseInt(chosenDestination),
+       travelers: parseInt(travelers.value),
+        date:startDate.value,
+        duration: parseInt(duration.value),
+         status: 'pending',
+          suggestedActivities: []
+        }
+    console.log(tripRequest);
 }
 
 function selectDestination(event) {
