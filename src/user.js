@@ -29,9 +29,9 @@ class User {
     this.trips.forEach((trip, i) => {
       housingCost += trip.duration * trip.correspondingDestination.estimatedLodgingCostPerDay;
       travelCost += trip.travelers * trip.correspondingDestination.estimatedFlightCostPerPerson;
-   });
-   totalCost = housingCost + travelCost;
-   return totalCost += totalCost * .1;
+    });
+    totalCost = housingCost + travelCost;
+    return totalCost += totalCost * .1;
   }
 }
 

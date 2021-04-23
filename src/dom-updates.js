@@ -17,39 +17,39 @@ const domUpdates = {
     const pendingTripList = document.getElementById('pendingTripList')
 
     user.trips.forEach((trip, i) => {
-      if(trip.status === 'pending') {
+      if (trip.status === 'pending') {
         pendingTripList.innerHTML +=
-        `<p>${trip.correspondingDestination.destination}</p>`
-      } else {
-        if(this.calculateDate(trip, todaysDate) === 'ongoing') {
-          ongoingTripList.innerHTML +=
           `<p>${trip.correspondingDestination.destination}</p>`
+      } else {
+        if (this.calculateDate(trip, todaysDate) === 'ongoing') {
+          ongoingTripList.innerHTML +=
+            `<p>${trip.correspondingDestination.destination}</p>`
         } else if (this.calculateDate(trip, todaysDate) === 'upcoming') {
           upcomingTripList.innerHTML +=
-          `<p>${trip.correspondingDestination.destination}</p>`
+            `<p>${trip.correspondingDestination.destination}</p>`
         } else {
           pastTripList.innerHTML +=
-          `<p>${trip.correspondingDestination.destination}</p>`
+            `<p>${trip.correspondingDestination.destination}</p>`
         }
       }
     });
   },
 
   calculateDate(trip, todaysDate) {
-  let durationInMS = trip.duration * 86400000;
-  let currentDate = Date.parse(todaysDate)
-  let date = Date.parse(trip.date)
-  if(date === currentDate) {
-    return "ongoing"
-  } else if (date > currentDate) {
-    return "upcoming"
-  } else if (currentDate > date) {
-    if (currentDate < date + durationInMS) {
+    let durationInMS = trip.duration * 86400000;
+    let currentDate = Date.parse(todaysDate)
+    let date = Date.parse(trip.date)
+    if (date === currentDate) {
       return "ongoing"
-    } else {
-      return "past"
+    } else if (date > currentDate) {
+      return "upcoming"
+    } else if (currentDate > date) {
+      if (currentDate < date + durationInMS) {
+        return "ongoing"
+      } else {
+        return "past"
+      }
     }
-  }
   }
 }
 

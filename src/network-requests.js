@@ -29,4 +29,6 @@ const getData = () => {
 }
 
 
-export { getData };
+export {
+  getData
+};
