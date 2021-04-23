@@ -26,7 +26,7 @@ function onStartup() {
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
       domUpdates.displayUserTrips(user);
-      domUpdates.displayDestinations(allData.destinationData)
+      domUpdates.displayDestinations(allData.destinationData.destinations)
     })
 }
 

@@ -53,22 +53,36 @@ const domUpdates = {
   },
 
   showForm() {
-    let dashboard = document.getElementById('mainDashboard');
-    let form = document.getElementById('tripRequestForm');
-    console.log(form);
+    const dashboard = document.getElementById('mainDashboard');
+    const form = document.getElementById('tripRequestForm');
     dashboard.classList.add('hidden');
     form.classList.remove('hidden');
   },
 
   showDash() {
-    let dashboard = document.getElementById('mainDashboard');
-    let form = document.getElementById('tripRequestForm');
+    const dashboard = document.getElementById('mainDashboard');
+    const form = document.getElementById('tripRequestForm');
     dashboard.classList.remove('hidden');
     form.classList.add('hidden');
   },
 
   displayDestinations(destinations) {
+    const destinationList = document.getElementById('destinationList')
     console.log(destinations)
+    destinations.forEach((destination, i) => {
+      destinationList.innerHTML +=
+      `<section class="destination-card">
+        <header>
+          <h3>${destination.destination}</h3>
+        </header>
+        <img class="image-size" src=${destination.image} alt=${destination.alt}>
+        <ul>
+          <li>Flight cost(per traveler): ${destination.estimatedFlightCostPerPerson}</li>
+          <li>Lodging cost(per day): ${destination.estimatedLodgingCostPerDay}</li>
+        </ul>
+      </section>`
+    });
+
   }
 }
 
