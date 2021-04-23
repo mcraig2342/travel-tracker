@@ -8,17 +8,15 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 let user
+
 window.onload = onStartup();
+
 function onStartup() {
   getData()
     .then(allData => {
-      user = new User(allData.travelerData.travelers[10], allData.tripsData.trips, allData.destinationData.destinations, Trip);
+      user = new User(allData.travelerData.travelers[1], allData.tripsData.trips, allData.destinationData.destinations, Trip);
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
+      domUpdates.displayUserTrips(user);
     })
-}
-
-function displayUserName(user) {
-  nameDisplay.innerText = `Welcome ${user.returnFirstName()}`
-
 }
