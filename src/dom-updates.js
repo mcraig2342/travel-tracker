@@ -50,6 +50,25 @@ const domUpdates = {
         return "past"
       }
     }
+  },
+
+  showForm() {
+    let dashboard = document.getElementById('mainDashboard');
+    let form = document.getElementById('tripRequestForm');
+    console.log(form);
+    dashboard.classList.add('hidden');
+    form.classList.remove('hidden');
+  },
+
+  showDash() {
+    let dashboard = document.getElementById('mainDashboard');
+    let form = document.getElementById('tripRequestForm');
+    dashboard.classList.remove('hidden');
+    form.classList.add('hidden');
+  },
+
+  displayDestinations(destinations) {
+    console.log(destinations)
   }
 }
 

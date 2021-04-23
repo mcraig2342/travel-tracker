@@ -9,9 +9,15 @@ import User from './user.js'
 import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
-let user
+const tripButton = document.getElementById('bookTripButton');
+const dashButton = document.getElementById('dashboardButton');
+const makeRequestButton = document.getElementById('tripRequestButton')
+let user;
 
 window.onload = onStartup();
+tripButton.addEventListener('click', domUpdates.showForm);
+dashButton.addEventListener('click', domUpdates.showDash);
+makeRequestButton.addEventListener('click', makeTripRequest)
 
 function onStartup() {
   getData()
@@ -20,5 +26,10 @@ function onStartup() {
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
       domUpdates.displayUserTrips(user);
+      domUpdates.displayDestinations(allData.destinationData)
     })
+}
+
+function makeTripRequest() {
+  domUpdates.confirmTripRequest();
 }
