@@ -37,6 +37,7 @@ body {
   overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr 1fr);
+  margin-bottom: 20px;
 }
 
 .destination-card {

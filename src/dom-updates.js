@@ -68,10 +68,9 @@ const domUpdates = {
 
   displayDestinations(destinations) {
     const destinationList = document.getElementById('destinationList')
-    console.log(destinations)
     destinations.forEach((destination, i) => {
       destinationList.innerHTML +=
-      `<section class="destination-card">
+      `<section id="${destination.id}" class="destination-card">
         <header>
           <h3>${destination.destination}</h3>
         </header>

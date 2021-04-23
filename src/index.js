@@ -11,18 +11,24 @@ import './css/base.scss';
 // import './images/turing-logo.png'
 const tripButton = document.getElementById('bookTripButton');
 const dashButton = document.getElementById('dashboardButton');
-const makeRequestButton = document.getElementById('tripRequestButton')
-let user;
+const makeRequestButton = document.getElementById('tripRequestButton');
+const destinationList = document.getElementById('destinationList');
+const startDate = document.getElementById('startDate');
+const duration = document.getElementById('duration');
+const travelers = document.getElementById('travelers')
+let user, chosenDestination, trips;
 
 window.onload = onStartup();
 tripButton.addEventListener('click', domUpdates.showForm);
 dashButton.addEventListener('click', domUpdates.showDash);
-makeRequestButton.addEventListener('click', makeTripRequest)
+makeRequestButton.addEventListener('click', makeTripRequest);
+destinationList.addEventListener('click', selectDestination);
 
 function onStartup() {
   getData()
     .then(allData => {
       user = new User(allData.travelerData.travelers[1], allData.tripsData.trips, allData.destinationData.destinations, Trip);
+      trips = allData.tripsData.trips
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
       domUpdates.displayUserTrips(user);
@@ -31,5 +37,17 @@ function onStartup() {
 }
 
 function makeTripRequest() {
-  domUpdates.confirmTripRequest();
+  // domUpdates.confirmTripRequest();
+  console.log(trips.length + 1);
+  console.log(user.id);
+  console.log(chosenDestination);
+  console.log(startDate.value);
+  console.log(duration.value);
+  console.log(travelers.value);
+}
+
+function selectDestination(event) {
+  if (event.target.classList.contains('destination-card')) {
+      chosenDestination = event.target.id
+    }
 }
