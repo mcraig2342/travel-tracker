@@ -85,7 +85,21 @@ const domUpdates = {
         </ul>
       </section>`
     });
+  },
 
+  confirmTripRequest(tripRequest) {
+    let housingCost = tripRequest.duration * tripRequest.correspondingDestination.estimatedLodgingCostPerDay;
+    let travelCost = tripRequest.travelers * tripRequest.correspondingDestination.estimatedFlightCostPerPerson;
+    let totalCost = housingCost + travelCost;
+    const tripDetails = document.getElementById('tripDetails')
+    tripDetails.innerHTML = '';
+    tripDetails.innerHTML +=
+    `<div class="details-container">
+      <p>Destination: ${tripRequest.correspondingDestination.destination}</p>
+      <p>Travelers: ${tripRequest.travelers}</p>
+      <p>Duration: ${tripRequest.duration}</p>
+      <p>Estimated Cost: $${totalCost}</p>
+    </div>`
   }
 }
 

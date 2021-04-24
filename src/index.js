@@ -16,7 +16,7 @@ const destinationList = document.getElementById('destinationList');
 const startDate = document.getElementById('startDate');
 const duration = document.getElementById('duration');
 const travelers = document.getElementById('travelers')
-let user, chosenDestination, trips;
+let user, chosenDestination, trips, requestedTrip, tripRequest;
 
 window.onload = onStartup();
 tripButton.addEventListener('click', domUpdates.showForm);
@@ -27,7 +27,7 @@ destinationList.addEventListener('click', selectDestination);
 function onStartup() {
   getData()
     .then(allData => {
-      user = new User(allData.travelerData.travelers[1], allData.tripsData.trips, allData.destinationData.destinations, Trip);
+      user = new User(allData.travelerData.travelers[2], allData.tripsData.trips, allData.destinationData.destinations, Trip);
       trips = allData.tripsData.trips
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
@@ -37,25 +37,31 @@ function onStartup() {
 }
 
 function makeTripRequest() {
-  // domUpdates.confirmTripRequest();
-  let formattedDate = startDate.value.replace(/-/g, "/");
-  let tripRequest = {
-    id: trips.length + 1,
-     userID: user.id,
-      destinationID: parseInt(chosenDestination),
-       travelers: parseInt(travelers.value),
-        date:formattedDate,
-        duration: parseInt(duration.value),
-         status: 'pending',
-          suggestedActivities: []
-        }
-    console.log(tripRequest);
+  if (window.confirm('Are you sure you want to request this trip?')) {
     postTrip(tripRequest);
     onStartup();
+    domUpdates.displayUserTrips(user);
+  }
 }
 
 function selectDestination(event) {
   if (event.target.classList.contains('destination-card')) {
-      chosenDestination = event.target.id
-    }
+    let formattedDate = startDate.value.replace(/-/g, "/");
+    chosenDestination = event.target.id
+    tripRequest = {
+      id: trips.length + 1,
+      userID: user.id,
+      destinationID: parseInt(chosenDestination),
+      travelers: parseInt(travelers.value),
+      date: formattedDate,
+      duration: parseInt(duration.value),
+      status: 'pending',
+      suggestedActivities: [],
+    };
+    getData()
+      .then(allData => {
+        requestedTrip = new Trip(tripRequest, allData.destinationData.destinations)
+        domUpdates.confirmTripRequest(requestedTrip);
+      })
+  }
 }
