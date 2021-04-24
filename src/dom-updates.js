@@ -16,6 +16,10 @@ const domUpdates = {
     const ongoingTripList = document.getElementById('ongoingTripList')
     const pendingTripList = document.getElementById('pendingTripList')
 
+    pendingTripList.innerHTML = '';
+    ongoingTripList.innerHTML = '';
+    upcomingTripList.innerHTML = '';
+    pastTripList.innerHTML = '';
     user.trips.forEach((trip, i) => {
       if (trip.status === 'pending') {
         pendingTripList.innerHTML +=

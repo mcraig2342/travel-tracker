@@ -2,7 +2,7 @@
 // Do not delete or rename this file ********
 import domUpdates from "./dom-updates";
 import {
-  getData
+  getData, postTrip
 } from './network-requests.js'
 import Trip from './trip.js'
 import User from './user.js'
@@ -38,17 +38,20 @@ function onStartup() {
 
 function makeTripRequest() {
   // domUpdates.confirmTripRequest();
+  let formattedDate = startDate.value.replace(/-/g, "/");
   let tripRequest = {
     id: trips.length + 1,
      userID: user.id,
       destinationID: parseInt(chosenDestination),
        travelers: parseInt(travelers.value),
-        date:startDate.value,
+        date:formattedDate,
         duration: parseInt(duration.value),
          status: 'pending',
           suggestedActivities: []
         }
     console.log(tripRequest);
+    postTrip(tripRequest);
+    onStartup();
 }
 
 function selectDestination(event) {
