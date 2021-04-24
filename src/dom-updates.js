@@ -91,6 +91,7 @@ const domUpdates = {
     let housingCost = tripRequest.duration * tripRequest.correspondingDestination.estimatedLodgingCostPerDay;
     let travelCost = tripRequest.travelers * tripRequest.correspondingDestination.estimatedFlightCostPerPerson;
     let totalCost = housingCost + travelCost;
+    let estimatedCost = totalCost + totalCost * .1
     const tripDetails = document.getElementById('tripDetails')
     tripDetails.innerHTML = '';
     tripDetails.innerHTML +=
@@ -98,7 +99,7 @@ const domUpdates = {
       <p>Destination: ${tripRequest.correspondingDestination.destination}</p>
       <p>Travelers: ${tripRequest.travelers}</p>
       <p>Duration: ${tripRequest.duration}</p>
-      <p>Estimated Cost: $${totalCost}</p>
+      <p>Estimated Cost: $${estimatedCost}</p>
     </div>`
   }
 }
