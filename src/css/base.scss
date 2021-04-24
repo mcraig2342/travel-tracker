@@ -21,3 +21,30 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.hidden {
+  display: none;
+}
+
+.image-size {
+  height: 20vw;
+  width: 20vw;
+}
+
+.destination-list {
+  height: 40vw;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr 1fr);
+  margin-bottom: 20px;
+}
+
+.destination-card {
+  width: 20vw;
+  height: 30vw;
+  padding: 10px;
+  margin: 10px;
+  border: grey solid;
+  background-color: white;
+}

@@ -16,6 +16,10 @@ const domUpdates = {
     const ongoingTripList = document.getElementById('ongoingTripList')
     const pendingTripList = document.getElementById('pendingTripList')
 
+    pendingTripList.innerHTML = '';
+    ongoingTripList.innerHTML = '';
+    upcomingTripList.innerHTML = '';
+    pastTripList.innerHTML = '';
     user.trips.forEach((trip, i) => {
       if (trip.status === 'pending') {
         pendingTripList.innerHTML +=
@@ -50,6 +54,52 @@ const domUpdates = {
         return "past"
       }
     }
+  },
+
+  showForm() {
+    const dashboard = document.getElementById('mainDashboard');
+    const form = document.getElementById('tripRequestForm');
+    dashboard.classList.add('hidden');
+    form.classList.remove('hidden');
+  },
+
+  showDash() {
+    const dashboard = document.getElementById('mainDashboard');
+    const form = document.getElementById('tripRequestForm');
+    dashboard.classList.remove('hidden');
+    form.classList.add('hidden');
+  },
+
+  displayDestinations(destinations) {
+    const destinationList = document.getElementById('destinationList')
+    destinations.forEach((destination, i) => {
+      destinationList.innerHTML +=
+      `<section id="${destination.id}" class="destination-card">
+        <header>
+          <h3>${destination.destination}</h3>
+        </header>
+        <img class="image-size" src=${destination.image} alt=${destination.alt}>
+        <ul>
+          <li>Flight cost(per traveler): ${destination.estimatedFlightCostPerPerson}</li>
+          <li>Lodging cost(per day): ${destination.estimatedLodgingCostPerDay}</li>
+        </ul>
+      </section>`
+    });
+  },
+
+  confirmTripRequest(tripRequest) {
+    let housingCost = tripRequest.duration * tripRequest.correspondingDestination.estimatedLodgingCostPerDay;
+    let travelCost = tripRequest.travelers * tripRequest.correspondingDestination.estimatedFlightCostPerPerson;
+    let totalCost = housingCost + travelCost;
+    const tripDetails = document.getElementById('tripDetails')
+    tripDetails.innerHTML = '';
+    tripDetails.innerHTML +=
+    `<div class="details-container">
+      <p>Destination: ${tripRequest.correspondingDestination.destination}</p>
+      <p>Travelers: ${tripRequest.travelers}</p>
+      <p>Duration: ${tripRequest.duration}</p>
+      <p>Estimated Cost: $${totalCost}</p>
+    </div>`
   }
 }
 

@@ -28,7 +28,19 @@ const getData = () => {
     .catch(err => console.log('ERROR', err))
 }
 
+const postTrip = (object) => {
+  fetch("http://localhost:3001/api/v1/trips", {
+    method: "POST",
+    body: JSON.stringify(object),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .catch(err => console.log('ERROR', err))
+
+}
+
 
 export {
-  getData
+  getData, postTrip
 };

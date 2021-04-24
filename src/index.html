@@ -17,10 +17,10 @@
     <p id="todaysDate" class="todays-date">Todays Date: 2020/3/28</p>
   </header>
   <nav>
-    <button type="button" class="dashboard-button">Dashboard</button>
-    <button type="button" class="book-trip-button">Book a trip</button>
+    <button id="dashboardButton" type="button" class="dashboard-button">Dashboard</button>
+    <button id="bookTripButton" type="button" class="book-trip-button">Book a trip</button>
   </nav>
-  <main class="main-dashboard">
+  <main id="mainDashboard" class="main-dashboard">
     <section class="past-trips trip-box">
       <header>
         <h3 class="trip-header">Past trips</h3>
@@ -50,7 +50,21 @@
       </ul>
     </section>
   </main>
-
+  <form id="tripRequestForm" class="trip-request-form hidden" action="index.html" method="post">
+    <h3>Select start date</h3>
+    <input id="startDate" type="date" name="" value="">
+    <h3>Trip duration(days)</h3>
+    <input id="duration" type="number" name="" value="">
+    <h3>Number of travelers</h3>
+    <input id="travelers" type="number" name="" value="">
+    <h3>Destinations (please select one)</h3>
+    <section id="destinationList" class="destination-list">
+    </section>
+    <h3>Trip Details</h3>
+    <section id="tripDetails" class="trip-details">
+    </section>
+    <button id="tripRequestButton" type="button" class="make-trip-request-button">Make trip request</button>
+  </form>
 </body>
 
 </html>
