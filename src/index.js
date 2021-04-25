@@ -27,9 +27,9 @@ destinationList.addEventListener('click', selectDestination);
 loginButton.addEventListener('click', loginTraveler)
 
 function loadUser() {
-  getData()
+  getData(userLoginId)
     .then(allData => {
-      user = new User(allData.travelerData.travelers[2], allData.tripsData.trips, allData.destinationData.destinations, Trip);
+      user = new User(allData.travelerData, allData.tripsData.trips, allData.destinationData.destinations, Trip);
       trips = allData.tripsData.trips
       domUpdates.displayUserName(user);
       domUpdates.displayAmountSpent(user);
