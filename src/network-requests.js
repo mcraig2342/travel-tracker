@@ -1,4 +1,4 @@
-const getData = () => {
+const getData = (userID) => {
   const tripsData = fetch('http://localhost:3001/api/v1/trips')
     .then(response => response.json())
     .then(tripsData => {
@@ -11,7 +11,7 @@ const getData = () => {
       return destinationData;
     })
 
-  const travelerData = fetch('http://localhost:3001/api/v1/travelers')
+  const travelerData = fetch(`http://localhost:3001/api/v1/travelers/${userID}`)
     .then(response => response.json())
     .then(travelerData => {
       return travelerData;

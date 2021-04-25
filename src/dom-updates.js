@@ -64,10 +64,16 @@ const domUpdates = {
   },
 
   showDash() {
+    const header = document.getElementById('header');
+    const nav = document.getElementById('nav')
+    const loginPage = document.getElementById('loginPage');
     const dashboard = document.getElementById('mainDashboard');
     const form = document.getElementById('tripRequestForm');
     dashboard.classList.remove('hidden');
+    nav.classList.remove('hidden');
+    header.classList.remove('hidden');
     form.classList.add('hidden');
+    loginPage.classList.add('hidden');
   },
 
   displayDestinations(destinations) {
