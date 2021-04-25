@@ -8,19 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <header>
+  <header id="header" class="hidden">
     <h1 class="title">Travel Tracker</h1>
     <h2 id="welcome" class="welcome"></h2>
     <p id="amountSpent" class="amount-spent"></p>
     <p id="todaysDate" class="todays-date">Todays Date: 2020/3/28</p>
   </header>
-  <nav>
+  <nav id="nav" class="hidden">
     <button id="dashboardButton" type="button" class="dashboard-button">Dashboard</button>
     <button id="bookTripButton" type="button" class="book-trip-button">Book a trip</button>
   </nav>
-  <main id="mainDashboard" class="main-dashboard">
+  <main id="mainDashboard" class="main-dashboard hidden">
     <section class="past-trips trip-box">
       <header>
         <h3 class="trip-header">Past trips</h3>
@@ -55,7 +54,7 @@
     <input id="startDate" type="date" name="" value="">
     <label for="duration">Trip duration(days)</label>
     <input id="duration" type="number" name="" value="">
-    <label for="travelers">>Number of travelers</label>
+    <label for="travelers">Number of travelers</label>
     <input id="travelers" type="number" name="" value="">
     <h3>Destinations (please select one)</h3>
     <section id="destinationList" class="destination-list">
@@ -64,6 +63,15 @@
     <section id="tripDetails" class="trip-details">
     </section>
     <button id="tripRequestButton" type="button" class="make-trip-request-button">Make trip request</button>
+  </form>
+  <form id="loginPage" class="login-page" action="index.html" method="post">
+    <h1>Login</h1>
+    <label for="userName">User Name:</label>
+    <input id="userName" type="text">
+    <label for="password">Password:</label>
+    <input id="password" type="text">
+    <button id="loginButton" type="button" class="login-button">Login</button>
+    <p id="feedback"></p>
   </form>
 </body>
 

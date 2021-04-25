@@ -16,15 +16,17 @@ const destinationList = document.getElementById('destinationList');
 const startDate = document.getElementById('startDate');
 const duration = document.getElementById('duration');
 const travelers = document.getElementById('travelers')
-let user, chosenDestination, trips, requestedTrip, tripRequest;
+const loginButton = document.getElementById('loginButton')
+let user, userLoginId, chosenDestination, trips, requestedTrip, tripRequest;
 
-window.onload = onStartup();
+// window.onload = onStartup();
 tripButton.addEventListener('click', domUpdates.showForm);
 dashButton.addEventListener('click', domUpdates.showDash);
 makeRequestButton.addEventListener('click', makeTripRequest);
 destinationList.addEventListener('click', selectDestination);
+loginButton.addEventListener('click', loginTraveler)
 
-function onStartup() {
+function loadUser() {
   getData()
     .then(allData => {
       user = new User(allData.travelerData.travelers[2], allData.tripsData.trips, allData.destinationData.destinations, Trip);
@@ -64,4 +66,24 @@ function selectDestination(event) {
         domUpdates.confirmTripRequest(requestedTrip);
       })
   }
+}
+
+function loginTraveler() {
+  const feedback = document.getElementById('feedback');
+  const userName = document.getElementById('userName').value;
+  const password = document.getElementById('password').value;
+  const validUserNames = []
+  const correctPassword = 'travel2020'
+  for(let i = 1; i <= 50; i++) {
+    validUserNames.push(`traveler${i}`)
+  };
+
+  if(validUserNames.includes(userName) && password === correctPassword) {
+    userLoginId = userName.split("r")[2]
+    domUpdates.showDash();
+    loadUser();
+  } else{
+    feedback.innerText = "Incorrect user name and password combination"
+  }
+
 }
