@@ -59,6 +59,12 @@ describe('User', () => {
   });
 
   it("should be able to find the amount they have spent", () => {
-    expect(defaultUser.calculateAmountSpent(destinations)).to.equal(2442)
+    let defaultUser2 = new User({
+    "id": 2,
+    "name": "Rachael Vaughten",
+    "travelerType": "thrill-seeker"
+    }, trips, destinations, Trip);
+    expect(defaultUser.calculateAmountSpent(destinations)).to.equal(2442);
+    expect(defaultUser2.calculateAmountSpent(destinations)).to.equal(0)
   });
 });

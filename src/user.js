@@ -23,10 +23,19 @@ class User {
   }
 
   calculateAmountSpent() {
+    let yearlyMS = 86400000 * 365;
+    let todaysDate = new Date();
+    let thisYearsTrips = [];
     let totalCost = 0;
     let housingCost = 0;
     let travelCost = 0;
     this.trips.forEach((trip, i) => {
+      if(Date.parse(trip.date) > Date.parse(todaysDate) - yearlyMS) {
+        thisYearsTrips.push(trip)
+      }
+    });
+
+    thisYearsTrips.forEach((trip, i) => {
       housingCost += trip.duration * trip.correspondingDestination.estimatedLodgingCostPerDay;
       travelCost += trip.travelers * trip.correspondingDestination.estimatedFlightCostPerPerson;
     });

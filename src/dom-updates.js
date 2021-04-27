@@ -6,11 +6,11 @@ const domUpdates = {
 
   displayAmountSpent(user) {
     const amountSpentDisplay = document.getElementById('amountSpent')
-    amountSpentDisplay.innerText = `You have spent $${user.calculateAmountSpent()} traveling`
+    amountSpentDisplay.innerText = `Amount spent this year: $${user.calculateAmountSpent()}`
   },
 
   displayUserTrips(user) {
-    let todaysDate = "2020/3/28"
+    let todaysDate = new Date();
     const pastTripList = document.getElementById('pastTripList')
     const upcomingTripList = document.getElementById('upcomingTripList')
     const ongoingTripList = document.getElementById('ongoingTripList')
@@ -23,17 +23,17 @@ const domUpdates = {
     user.trips.forEach((trip, i) => {
       if (trip.status === 'pending') {
         pendingTripList.innerHTML +=
-          `<p>${trip.correspondingDestination.destination}</p>`
+          `<li class='trip'>${trip.correspondingDestination.destination}</li>`
       } else {
         if (this.calculateDate(trip, todaysDate) === 'ongoing') {
           ongoingTripList.innerHTML +=
-            `<p>${trip.correspondingDestination.destination}</p>`
+            `<li class='trip'>${trip.correspondingDestination.destination}</li>`
         } else if (this.calculateDate(trip, todaysDate) === 'upcoming') {
           upcomingTripList.innerHTML +=
-            `<p>${trip.correspondingDestination.destination}</p>`
+            `<li class='trip'>${trip.correspondingDestination.destination}</li>`
         } else {
           pastTripList.innerHTML +=
-            `<p>${trip.correspondingDestination.destination}</p>`
+            `<li class='trip'>${trip.correspondingDestination.destination}</li>`
         }
       }
     });
@@ -59,6 +59,12 @@ const domUpdates = {
   showForm() {
     const dashboard = document.getElementById('mainDashboard');
     const form = document.getElementById('tripRequestForm');
+    const amountSpent = document.getElementById('amountSpent');
+    const dashboardButton = document.getElementById('dashboardButton');
+    const bookTripButton = document.getElementById('bookTripButton');
+    dashboardButton.classList.remove('tab-styling');
+    bookTripButton.classList.add('tab-styling');
+    amountSpent.classList.add('hidden');
     dashboard.classList.add('hidden');
     form.classList.remove('hidden');
   },
@@ -66,9 +72,15 @@ const domUpdates = {
   showDash() {
     const header = document.getElementById('header');
     const nav = document.getElementById('nav')
-    const loginPage = document.getElementById('loginPage');
+    const loginPage = document.getElementById('userLogin');
     const dashboard = document.getElementById('mainDashboard');
     const form = document.getElementById('tripRequestForm');
+    const amountSpent = document.getElementById('amountSpent');
+    const dashboardButton = document.getElementById('dashboardButton');
+    const bookTripButton = document.getElementById('bookTripButton');
+    dashboardButton.classList.add('tab-styling');
+    bookTripButton.classList.remove('tab-styling');
+    amountSpent.classList.remove('hidden')
     dashboard.classList.remove('hidden');
     nav.classList.remove('hidden');
     header.classList.remove('hidden');
@@ -80,14 +92,14 @@ const domUpdates = {
     const destinationList = document.getElementById('destinationList')
     destinations.forEach((destination, i) => {
       destinationList.innerHTML +=
-      `<section id="${destination.id}" class="destination-card">
+      `<section id="${destination.id}" class="card destination-card">
         <header>
-          <h3>${destination.destination}</h3>
+          <h3 id="${destination.id}" class="card">${destination.destination}</h3>
         </header>
-        <img class="image-size" src=${destination.image} alt=${destination.alt}>
-        <ul>
-          <li>Flight cost(per traveler): ${destination.estimatedFlightCostPerPerson}</li>
-          <li>Lodging cost(per day): ${destination.estimatedLodgingCostPerDay}</li>
+        <img id="${destination.id}" class="card image-size" src=${destination.image} alt=${destination.alt}>
+        <ul id="${destination.id}" class="card">
+          <li class="cost">Flight cost(per traveler): ${destination.estimatedFlightCostPerPerson}</li>
+          <li class="cost">Lodging cost(per day): ${destination.estimatedLodgingCostPerDay}</li>
         </ul>
       </section>`
     });
