@@ -54,13 +54,13 @@
   <p id="amountSpent" class="amount-spent"></p>
   <form id="tripRequestForm" class="trip-request-form hidden" action="index.html" method="post">
     <label class="start-date-label" for="startDate">Select start date:</label>
-    <input class="start-date" id="startDate" type="date" name="" value="">
+    <input aria-required="true" class="start-date" id="startDate" type="date" name="">
     <label for="duration">Trip duration(days):</label>
-    <input class="duration" id="duration" type="number" name="" value="">
+    <input aria-required="true" class="duration" id="duration" type="number" name="">
     <label for="travelers">Number of travelers:</label>
-    <input class="travelers" id="travelers" type="number" name="" value="">
+    <input aria-required="true" class="travelers" id="travelers" type="number" name="">
     <h3 class="destination-header">Destinations (please select one)</h3>
-    <section id="destinationList" class="destination-list">
+    <section aria-required="true" id="destinationList" class="destination-list">
     </section>
     <h3 class="details">Trip Details</h3>
     <section id="tripDetails" class="trip-details">
