@@ -11,25 +11,40 @@ body {
 .main-dashboard {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 5vw;
 }
 
 .trip-box {
   height: 30vw;
+  border-radius: 2px;
   width: 22vw;
   background-color: white;
   margin-top: 5vw;
   overflow: hidden;
   overflow-y: scroll;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.trip-list {
+  padding-left: 2vw;
+  padding-top: 2vw;
 }
 
 .trip-header {
-  background-color: grey;
+  padding-top: 1vw;
+  color: white;
+  background-color: #2e6199;
+  height: 3vw;
   display: flex;
   justify-content: center;
 }
 
+.trip {
+  margin-bottom: 1.5vw;
+}
+
 .amount-spent {
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-left: 1vw;
 }
 
@@ -40,7 +55,17 @@ body {
 
 .nav {
   display: flex;
-  justify-content: center;
+  background-color: $header-color
+}
+
+.dashboard-button {
+  margin-left: 3vw;
+}
+
+.tab-styling {
+  border: none;
+  width: 7vw;
+  border-radius: 2px;
 }
 
 .book-trip-button {
@@ -48,8 +73,11 @@ body {
 }
 
 .header {
+  background-color: $header-color;
+  color: $header-text;
   display: flex;
   justify-content: center;
+  height: 7vw;
 }
 
 .hidden {
