@@ -5,11 +5,10 @@
 
 .destination-list {
   height: 40vw;
-  overflow: hidden;
-  overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr 1fr);
   margin-bottom: 20px;
+  @include overflow-scroll();
 }
 
 .destination-header {
@@ -27,9 +26,9 @@
   height: 30vw;
   padding: 10px;
   margin: 10px;
-  border-radius: 2px;
+  @include rounded-corners(2px);
   background-color: $destination-background;
-  box-shadow: 2px 2px 5px grey;
+  box-shadow: $box-shadow;
 }
 
 .destination-card:hover {
@@ -65,5 +64,5 @@
   margin-top: 2vw;
   margin-left: 1vw;
   background-color: $button-color;
-  border-radius: 4px;
+  @include rounded-corners(4px);
 }

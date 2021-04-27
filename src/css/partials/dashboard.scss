@@ -16,13 +16,12 @@ body {
 
 .trip-box {
   height: 30vw;
-  border-radius: 2px;
+  @include rounded-corners(2px);
   width: 22vw;
   background-color: white;
   margin-top: 5vw;
-  overflow: hidden;
-  overflow-y: scroll;
-  box-shadow: 2px 2px 5px grey;
+  box-shadow: $box-shadow;
+  @include overflow-scroll();
 }
 
 .trip-list {
@@ -35,8 +34,7 @@ body {
   color: white;
   background-color: $trip-header-background;
   height: 3vw;
-  display: flex;
-  justify-content: center;
+  @include center-flex();
 }
 
 .trip {
@@ -49,8 +47,7 @@ body {
 }
 
 .welcome-box {
-  display: flex;
-  justify-content: center;
+  @include center-flex();
 }
 
 .nav {
@@ -65,7 +62,7 @@ body {
 .tab-styling {
   border: none;
   width: 7vw;
-  border-radius: 2px;
+  @include rounded-corners(2px);
 }
 
 .book-trip-button {
@@ -75,8 +72,7 @@ body {
 .header {
   background-color: $header-color;
   color: $header-text;
-  display: flex;
-  justify-content: center;
+  @include center-flex();
   height: 7vw;
 }
 

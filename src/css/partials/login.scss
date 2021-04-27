@@ -24,8 +24,7 @@
 }
 
 .login-page {
-  display: flex;
-  justify-content: center;
+  @include center-flex();
 }
 
 .login-button {
@@ -43,7 +42,7 @@
 .login-button {
   margin-top: 3vw;
   background-color: $button-color;
-  border-radius: 4px;
+  @include rounded-corners(4px);
 }
 
  .login-input-wrapper {
