@@ -1,50 +1,7 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-
-body {
-  background: $primary-background;
-}
-
-.main-dashboard {
-  display: flex;
-  justify-content: space-around;
-}
-
-.trip-box {
-  height: 30vw;
-  width: 22vw;
-  background-color: white;
-}
-
-.trip-header {
-  background-color: grey;
-  display: flex;
-  justify-content: center;
-}
-
-.hidden {
-  display: none;
-}
-
-.image-size {
-  height: 20vw;
-  width: 20vw;
-}
-
-.destination-list {
-  height: 40vw;
-  overflow: hidden;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr 1fr);
-  margin-bottom: 20px;
-}
-
-.destination-card {
-  width: 20vw;
-  height: 30vw;
-  padding: 10px;
-  margin: 10px;
-  border: grey solid;
-  background-color: white;
-}
+@import "partials/colors";
+@import "partials/mixins";
+@import "partials/variables";
+@import "partials/dashboard";
+@import "partials/trip-request";
+@import "partials/login";
+@import "partials/media-queries"

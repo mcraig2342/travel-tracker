@@ -9,14 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header id="header" class="hidden">
-    <h1 class="title">Travel Tracker</h1>
-    <h2 id="welcome" class="welcome"></h2>
-    <p id="amountSpent" class="amount-spent"></p>
-    <p id="todaysDate" class="todays-date">Todays Date: 2020/3/28</p>
+  <header id="header" class="header hidden">
+    <div class="user-name-container">
+      <h1 class="dashboard-title">Travel Tracker</h1>
+      <div class="welcome-box">
+        <h2 id="welcome" class="welcome"></h2>
+      </div>
+    </div>
   </header>
-  <nav id="nav" class="hidden">
-    <button id="dashboardButton" type="button" class="dashboard-button">Dashboard</button>
+  <nav id="nav" class="nav hidden">
+    <button id="dashboardButton" type="button" class="dashboard-button tab-styling">Dashboard</button>
     <button id="bookTripButton" type="button" class="book-trip-button">Book a trip</button>
   </nav>
   <main id="mainDashboard" class="main-dashboard hidden">
@@ -49,30 +51,41 @@
       </ul>
     </section>
   </main>
+  <p id="amountSpent" class="amount-spent"></p>
   <form id="tripRequestForm" class="trip-request-form hidden" action="index.html" method="post">
-    <label for="startDate">Select start date</label>
-    <input id="startDate" type="date" name="" value="">
-    <label for="duration">Trip duration(days)</label>
-    <input id="duration" type="number" name="" value="">
-    <label for="travelers">Number of travelers</label>
-    <input id="travelers" type="number" name="" value="">
-    <h3>Destinations (please select one)</h3>
+    <label class="start-date-label" for="startDate">Select start date:</label>
+    <input class="start-date" id="startDate" type="date" name="" value="">
+    <label for="duration">Trip duration(days):</label>
+    <input class="duration" id="duration" type="number" name="" value="">
+    <label for="travelers">Number of travelers:</label>
+    <input class="travelers" id="travelers" type="number" name="" value="">
+    <h3 class="destination-header">Destinations (please select one)</h3>
     <section id="destinationList" class="destination-list">
     </section>
-    <h3>Trip Details</h3>
+    <h3 class="details">Trip Details</h3>
     <section id="tripDetails" class="trip-details">
+      <p>Please fill out required fields</p>
     </section>
     <button id="tripRequestButton" type="button" class="make-trip-request-button">Make trip request</button>
   </form>
-  <form id="loginPage" class="login-page" action="index.html" method="post">
-    <h1>Login</h1>
-    <label for="userName">User Name:</label>
-    <input id="userName" type="text">
-    <label for="password">Password:</label>
-    <input id="password" type="text">
-    <button id="loginButton" type="button" class="login-button">Login</button>
+  <section class="user-login" id="userLogin">
+    <header class="login-header">
+      <h1 class="title">Travel Tracker</h1>
+    </header>
+    <form id="loginPage" class="login-page" action="index.html" method="post">
+      <div class="login-wrapper">
+        <h2 class="login">Login</h2>
+        <div class="login-input-wrapper">
+          <label for="userName">User Name:</label>
+          <input id="userName" class="user-name" type="text">
+          <label for="password">Password:</label>
+          <input id="password" class="password" type="password">
+          <button id="loginButton" type="button" class="login-button">Login</button>
+        </div>
+      </div>
+    </form>
     <p id="feedback"></p>
-  </form>
+  </section>
 </body>
 
 </html>

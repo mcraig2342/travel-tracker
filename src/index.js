@@ -1,5 +1,4 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
+
 import domUpdates from "./dom-updates";
 import {
   getData, postTrip
@@ -7,8 +6,7 @@ import {
 import Trip from './trip.js'
 import User from './user.js'
 import './css/base.scss';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
+
 const tripButton = document.getElementById('bookTripButton');
 const dashButton = document.getElementById('dashboardButton');
 const makeRequestButton = document.getElementById('tripRequestButton');
@@ -19,7 +17,7 @@ const travelers = document.getElementById('travelers')
 const loginButton = document.getElementById('loginButton')
 let user, userLoginId, chosenDestination, trips, requestedTrip, tripRequest;
 
-// window.onload = onStartup();
+
 tripButton.addEventListener('click', domUpdates.showForm);
 dashButton.addEventListener('click', domUpdates.showDash);
 makeRequestButton.addEventListener('click', makeTripRequest);
@@ -41,13 +39,13 @@ function loadUser() {
 function makeTripRequest() {
   if (window.confirm('Are you sure you want to request this trip?')) {
     postTrip(tripRequest);
-    onStartup();
+    loadUser();
     domUpdates.displayUserTrips(user);
   }
 }
 
 function selectDestination(event) {
-  if (event.target.classList.contains('destination-card')) {
+  if (event.target.classList.contains('card')) {
     let formattedDate = startDate.value.replace(/-/g, "/");
     chosenDestination = event.target.id
     tripRequest = {
