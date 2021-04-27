@@ -12,13 +12,42 @@
   margin-bottom: 20px;
 }
 
+.destination-header {
+  margin-top: 5vw;
+  margin-left: 1vw;
+}
+
+.cost {
+  margin-top: 1vw;
+  margin-left: 2vw;
+}
+
 .destination-card {
   width: 20vw;
   height: 30vw;
   padding: 10px;
   margin: 10px;
-  border: grey solid;
+  border-radius: 2px;
   background-color: white;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.destination-card:hover {
+  border: $button-color solid;
+}
+
+.destination-card:active {
+  background-color: $button-color;
+}
+
+.details {
+  font-size: 2vw;
+  margin-bottom: 1vw;
+  margin-left: 1vw;
+}
+
+.trip-details {
+  margin-left: 1vw;
 }
 
 .start-date, .duration, .travelers {
@@ -29,4 +58,12 @@
 
 .start-date-label {
   margin-left: 17vw;
+}
+
+.make-trip-request-button {
+  width: 12vw;
+  margin-top: 2vw;
+  margin-left: 1vw;
+  background-color: $button-color;
+  border-radius: 4px;
 }
