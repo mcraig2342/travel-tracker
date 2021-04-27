@@ -1,0 +1,68 @@
+.image-size {
+  height: 20vw;
+  width: 20vw;
+}
+
+.destination-list {
+  height: 40vw;
+  display: grid;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr 1fr);
+  @include overflow-scroll();
+}
+
+.destination-header {
+  margin-top: 5vw;
+  margin-left: 1vw;
+}
+
+.cost {
+  margin-top: 1vw;
+  margin-left: 2vw;
+}
+
+.destination-card {
+  width: 20vw;
+  height: 30vw;
+  padding: 10px;
+  margin: 10px;
+  @include rounded-corners(2px);
+  background-color: $destination-background;
+  box-shadow: $box-shadow;
+}
+
+.destination-card:hover {
+  border: $button-color solid;
+}
+
+.destination-card:active {
+  background-color: $button-color;
+}
+
+.details {
+  font-size: 2vw;
+  margin-bottom: 1vw;
+  margin-left: 1vw;
+}
+
+.trip-details {
+  margin-left: 1vw;
+}
+
+.start-date, .duration, .travelers {
+  display: inline-block;
+  margin-top: 5vw;
+  margin-right: 2vw;
+}
+
+.start-date-label {
+  margin-left: 17vw;
+}
+
+.make-trip-request-button {
+  width: 12vw;
+  margin-top: 2vw;
+  margin-left: 1vw;
+  background-color: $button-color;
+  @include rounded-corners(4px);
+}

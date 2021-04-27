@@ -1,0 +1,13 @@
+@mixin center-flex() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin overflow-scroll() {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+@mixin rounded-corners($radius) {
+  border-radius: $radius;
+}

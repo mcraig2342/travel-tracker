@@ -1,0 +1,55 @@
+.login-header {
+  height: 7vw;
+  background-color: $header-color;
+  color: $header-text;
+  font-size: 30px;
+}
+
+.login {
+  height: 4vw;
+  background-color: $header-color;
+  color: $header-text;
+  font-size: 30px;
+}
+
+.title {
+  padding-top: 2vw;
+  padding-left: 1vw;
+}
+
+.user-name, .password, .title-container{
+  display: block;
+  margin-bottom: 2vw;
+  width: 15vw;
+}
+
+.login-page {
+  @include center-flex();
+}
+
+.login-button {
+  margin-left: 2.7vw;
+  width: 10vw;
+}
+
+.login-wrapper {
+  margin-top: 8vw;
+  height: 30vw;
+  width: 30vw;
+  border: $header-color solid
+}
+
+.login-button {
+  margin-top: 3vw;
+  background-color: $button-color;
+  @include rounded-corners(4px);
+}
+
+ .login-input-wrapper {
+   margin-left: 7vw;
+   margin-top: 5vw;
+ }
+
+.title {
+  font-size: 2.5vw;
+}

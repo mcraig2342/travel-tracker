@@ -1,0 +1,81 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $primary-background;
+}
+
+.main-dashboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5vw;
+}
+
+.trip-box {
+  height: 30vw;
+  @include rounded-corners(2px);
+  width: 22vw;
+  background-color: white;
+  margin-top: 5vw;
+  box-shadow: $box-shadow;
+  @include overflow-scroll();
+}
+
+.trip-list {
+  padding-left: 2vw;
+  padding-top: 2vw;
+}
+
+.trip-header {
+  padding-top: 1vw;
+  color: white;
+  background-color: $trip-header-background;
+  height: 3vw;
+  @include center-flex();
+}
+
+.trip {
+  margin-bottom: 1.5vw;
+}
+
+.amount-spent {
+  font-size: 1.5vw;
+  margin-left: 1vw;
+}
+
+.welcome-box {
+  @include center-flex();
+}
+
+.nav {
+  display: flex;
+  background-color: $header-color
+}
+
+.dashboard-button {
+  margin-left: 3vw;
+}
+
+.tab-styling {
+  border: none;
+  width: 7vw;
+  @include rounded-corners(2px);
+}
+
+.book-trip-button {
+  margin-left: 1vw;
+}
+
+.header {
+  background-color: $header-color;
+  color: $header-text;
+  @include center-flex();
+  height: 7vw;
+}
+
+.hidden {
+  display: none;
+}
