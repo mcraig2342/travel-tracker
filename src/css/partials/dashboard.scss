@@ -1,0 +1,49 @@
+body {
+  background: $primary-background;
+}
+
+.main-dashboard {
+  display: flex;
+  justify-content: space-around;
+}
+
+.trip-box {
+  height: 30vw;
+  width: 22vw;
+  background-color: white;
+  margin-top: 5vw;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.trip-header {
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+
+.amount-spent {
+  font-size: 2vw;
+  margin-left: 1vw;
+}
+
+.welcome {
+  margin-left: 44vw;
+}
+
+.dashboard-title {
+  margin-left: 42vw;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.book-trip-button {
+  margin-left: 1vw;
+}
+
+.hidden {
+  display: none;
+}
