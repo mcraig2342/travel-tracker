@@ -20,3 +20,13 @@
   border: grey solid;
   background-color: white;
 }
+
+.start-date, .duration, .travelers {
+  display: inline-block;
+  margin-top: 5vw;
+  margin-right: 2vw;
+}
+
+.start-date-label {
+  margin-left: 17vw;
+}

@@ -27,12 +27,9 @@ body {
   margin-left: 1vw;
 }
 
-.welcome {
-  margin-left: 44vw;
-}
-
-.dashboard-title {
-  margin-left: 42vw;
+.welcome-box {
+  display: flex;
+  justify-content: center;
 }
 
 .nav {
@@ -42,6 +39,11 @@ body {
 
 .book-trip-button {
   margin-left: 1vw;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
 }
 
 .hidden {
