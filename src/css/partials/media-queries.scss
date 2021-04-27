@@ -1,0 +1,49 @@
+
+// Tablet
+@media screen and (max-width: $break-point-1) {
+  //trip request
+  .start-date, .duration, .travelers {
+    display: block;
+    margin-top: 0vw;
+    margin-bottom: 1vw;
+    margin-right: 0vw;
+    margin-left: 1vw;
+  }
+
+  .start-date-label {
+    margin-top: 2vw;
+    margin-left: 0vw;
+  }
+}
+
+@media screen and (max-width: $break-point-2) {
+  .destination-list {
+    height: 40vw;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+  }
+
+  .destination-card {
+    width: 25vw;
+    height: 35vw;
+    padding: 10px;
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: $break-point-2) and (max-width: $break-point-3) {
+  .destination-list {
+    height: 40vw;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+  }
+
+  .destination-card {
+    width: 50vw; ;
+    height: 35vw;
+    padding: 10px;
+    margin: 10px;
+  }
+}

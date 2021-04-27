@@ -6,8 +6,8 @@
 .destination-list {
   height: 40vw;
   display: grid;
-  grid-template-columns: repeat(2, 1fr 1fr);
   margin-bottom: 20px;
+  grid-template-columns: repeat(2, 1fr 1fr);
   @include overflow-scroll();
 }
 
