@@ -33,7 +33,7 @@ body {
 .trip-header {
   padding-top: 1vw;
   color: white;
-  background-color: #2e6199;
+  background-color: $trip-header-background;
   height: 3vw;
   display: flex;
   justify-content: center;
