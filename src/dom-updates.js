@@ -124,6 +124,12 @@ const domUpdates = {
   displayNegativeValueError() {
     tripDetails.innerHTML = '';
     tripDetails.innerHTML = 'Please select positive values and a future travel date';
+  },
+
+  displayConfirmation() {
+    tripDetails.innerHTML = '';
+    tripDetails.innerHTML = 'Your trip request has been submitted, you will be redirected to the dashboard';
+    setTimeout(this.showDash, 3000);
   }
 }
 
