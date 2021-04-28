@@ -37,12 +37,16 @@ function loadUser() {
 }
 
 function makeTripRequest() {
+  let todaysDate = new Date();
   if(travelers.value && duration.value && startDate.value && chosenDestination){
-
-    if (window.confirm('Are you sure you want to request this trip?')) {
-      postTrip(tripRequest);
-      loadUser();
-      domUpdates.displayUserTrips(user);
+     if(travelers.value > 0 && duration.value > 0 && Date.parse(startDate.value) > Date.parse(todaysDate)){
+        if (window.confirm('Are you sure you want to request this trip?')) {
+          postTrip(tripRequest);
+          loadUser();
+          domUpdates.displayUserTrips(user);
+      }
+    } else {
+      domUpdates.displayNegativeValueError();
     }
   }
 }
