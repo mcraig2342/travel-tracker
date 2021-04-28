@@ -126,10 +126,11 @@ const domUpdates = {
     tripDetails.innerHTML = 'Please select positive values and a future travel date';
   },
 
-  displayConfirmation() {
+  displayConfirmation(user) {
     tripDetails.innerHTML = '';
     tripDetails.innerHTML = 'Your trip request has been submitted, you will be redirected to the dashboard';
     setTimeout(this.showDash, 3000);
+    this.displayUserTrips(user);
   }
 }
 

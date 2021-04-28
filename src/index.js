@@ -44,7 +44,7 @@ function makeTripRequest() {
           postTrip(tripRequest);
           loadUser();
           domUpdates.displayUserTrips(user);
-          domUpdates.displayConfirmation();
+          domUpdates.displayConfirmation(user);
       }
     } else {
       domUpdates.displayNegativeValueError();
