@@ -37,10 +37,18 @@ function loadUser() {
 }
 
 function makeTripRequest() {
-  if (window.confirm('Are you sure you want to request this trip?')) {
-    postTrip(tripRequest);
-    loadUser();
-    domUpdates.displayUserTrips(user);
+  let todaysDate = new Date();
+  if(travelers.value && duration.value && startDate.value && chosenDestination){
+     if(travelers.value > 0 && duration.value > 0 && Date.parse(startDate.value) > Date.parse(todaysDate)- 86400000){
+        if (window.confirm('Are you sure you want to request this trip?')) {
+          postTrip(tripRequest);
+          loadUser();
+          domUpdates.displayUserTrips(user);
+          domUpdates.displayConfirmation();
+      }
+    } else {
+      domUpdates.displayNegativeValueError();
+    }
   }
 }
 
@@ -58,11 +66,13 @@ function selectDestination(event) {
       status: 'pending',
       suggestedActivities: [],
     };
-    getData()
-      .then(allData => {
-        requestedTrip = new Trip(tripRequest, allData.destinationData.destinations)
-        domUpdates.confirmTripRequest(requestedTrip);
-      })
+    if(travelers.value && duration.value && startDate.value && chosenDestination){
+      getData(userLoginId)
+        .then(allData => {
+          requestedTrip = new Trip(tripRequest, allData.destinationData.destinations)
+          domUpdates.confirmTripRequest(requestedTrip);
+        })
+     }
   }
 }
 

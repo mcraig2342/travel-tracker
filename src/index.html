@@ -53,14 +53,14 @@
   </main>
   <p id="amountSpent" class="amount-spent"></p>
   <form id="tripRequestForm" class="trip-request-form hidden" action="index.html" method="post">
-    <label class="start-date-label" for="startDate">Select start date:</label>
-    <input class="start-date" id="startDate" type="date" name="" value="">
-    <label for="duration">Trip duration(days):</label>
-    <input class="duration" id="duration" type="number" name="" value="">
-    <label for="travelers">Number of travelers:</label>
-    <input class="travelers" id="travelers" type="number" name="" value="">
-    <h3 class="destination-header">Destinations (please select one)</h3>
-    <section id="destinationList" class="destination-list">
+    <label class="start-date-label" for="startDate">*Select start date:</label>
+    <input aria-required="true" class="start-date" id="startDate" type="date" name="">
+    <label for="duration">*Trip duration(days):</label>
+    <input aria-required="true" class="duration" id="duration" type="number" name="">
+    <label for="travelers">*Number of travelers:</label>
+    <input aria-required="true" class="travelers" id="travelers" type="number" name="">
+    <h3 class="destination-header">*Destinations (please select one)</h3>
+    <section aria-required="true" id="destinationList" class="destination-list">
     </section>
     <h3 class="details">Trip Details</h3>
     <section id="tripDetails" class="trip-details">
@@ -77,9 +77,9 @@
         <h2 class="login">Login</h2>
         <div class="login-input-wrapper">
           <label for="userName">User Name:</label>
-          <input id="userName" class="user-name" type="text">
+          <input aria-required="true" id="userName" class="user-name" type="text">
           <label for="password">Password:</label>
-          <input id="password" class="password" type="password">
+          <input aria-required="true" id="password" class="password" type="password">
           <button id="loginButton" type="button" class="login-button">Login</button>
         </div>
       </div>
